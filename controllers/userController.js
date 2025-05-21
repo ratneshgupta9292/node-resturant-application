@@ -125,7 +125,6 @@ const updatePasswordController = async (req, res) => {
         });
     }
 };
-//USER UPDATE
 
 //RESET password
 const resetPasswordController = async (req, res) => {
@@ -141,8 +140,8 @@ const resetPasswordController = async (req, res) => {
             });
         }
 
-        const user = await userModel.findOne({email,answer})
-     
+        const user = await userModel.findOne({ email, answer })
+
         if (!user) {
             return res.status(404).json({
                 success: false,
@@ -171,4 +170,30 @@ const resetPasswordController = async (req, res) => {
         });
     }
 };
-module.exports = { getUserController, updateUserController, updatePasswordController, resetPasswordController }
+// DLEETE PROFILE ACCOUNT
+
+const deleteProfileController = async (req, res) => {
+  try {
+    await userModel.findByIdAndDelete(req.params.id);
+    return res.status(200).send({
+      success: true,
+      message: "Your account has been deleted",
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      message: "Erorr In Delete Profile API",
+      error,
+    });
+  }
+};
+
+
+module.exports = {
+    getUserController,
+    updateUserController,
+    updatePasswordController,
+    resetPasswordController,
+    deleteProfileController
+}
