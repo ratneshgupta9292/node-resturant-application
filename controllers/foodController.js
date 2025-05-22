@@ -111,7 +111,7 @@ const deleteFoodController = async (req, res) => {
 
         res.status(200).send({
             success: true,
-            message: "Foods deleted successfully",
+            message: "Foods deleted successfully", 
         });
 
     } catch (error) {
