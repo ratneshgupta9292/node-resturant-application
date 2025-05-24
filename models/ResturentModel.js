@@ -53,4 +53,4 @@ const resturantSchema = new mongoose.Schema(
 );
 
 //export
-module.exports = mongoose.model("Resturant", resturantSchema);
+module.exports = mongoose.model("Resturant", resturantSchema); 

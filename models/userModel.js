@@ -23,12 +23,12 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: [true, "phone number is require"],
     },
-    // usertype: {
-    //   type: String,
-    //   required: [true, "user type is required"],
-    //   default: "clinet",
-    //   enum: ["clinet", "admin", "vendor", "driver"],
-    // },
+    usertype: {
+      type: String,
+      required: [true, "user type is required"],
+      default: "clinet",
+      enum: ["clinet", "admin", "vendor", "driver"],
+    },
     profile: {
       type: String,
       default:
